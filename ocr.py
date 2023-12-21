@@ -1,3 +1,5 @@
+#MAIN CODE CONTAINING OCR AND COLOUR DETECTION
+
 import os 
 from paddleocr import PaddleOCR
 import cv2
@@ -5,14 +7,13 @@ import psycopg2
 import datetime
 import time
 import pandas as pd
-from PIL import Image
 import numpy as np
 from collections import Counter
 
 
 # connecting to the database
 connection = psycopg2.connect(user="postgres",
-                              password="Aryaa2002!",
+                              password="",
                               host="127.0.0.1",
                               port="5432",
                               database="traffic_violation")
@@ -55,9 +56,6 @@ def color(image):
 image_folder = "car_plates3"
 
 
-
-
-
 # applying ocr on captured images and saving to database 
 for filename in os.listdir(input):
     if filename.endswith((".jpg")):
@@ -87,6 +85,6 @@ for filename in os.listdir(input):
             continue
 
 
- 
-
+# NOTE THAT SOME NUMBER PLATE SEEM LIKE THEY HAVE BEEN DUPLICATED BECAUSE THE INPUT VIDEO HAS NUMBER PLATES IN A DIFFERENT LANGUAGE ( I THINK CHINESE AND ENGLISH
+# SCREENSHOT OF THE CONTENTS OF THE DATABASE IS ALSO UPLOADED 
             
